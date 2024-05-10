@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 
-// 获取图书类型数量
+// 獲取圖書類型數量
 export function getCount() {
   return request({
     url: '/bookType/getCount',
@@ -8,7 +8,7 @@ export function getCount() {
   })
 }
 
-// 查询所有图书类型
+// 查詢所有圖書類型
 export function queryBookTypes() {
   return request({
     url: '/bookType/queryBookTypes',
@@ -16,7 +16,7 @@ export function queryBookTypes() {
   })
 }
 
-// 分页查询图书类型
+// 分頁查詢圖書類型
 export function queryBookTypesByPage(params) {
   return request({
     url: '/bookType/queryBookTypesByPage',
@@ -25,7 +25,7 @@ export function queryBookTypesByPage(params) {
   })
 }
 
-// 添加图书类型
+// 添加圖書類型
 export function addBookType(data) {
   return request({
     url: '/bookType/addBookType',
@@ -34,7 +34,7 @@ export function addBookType(data) {
   })
 }
 
-// 删除图书类型
+// 刪除圖書類型
 export function deleteBookType(data) {
   return request({
     url: '/bookType/deleteBookType',
@@ -43,7 +43,7 @@ export function deleteBookType(data) {
   })
 }
 
-//  删除一些图书类型
+//  刪除一些圖書類型
 export function deleteBookTypes(data) {
   return request({
     url: '/bookType/deleteBookTypes',
@@ -52,7 +52,7 @@ export function deleteBookTypes(data) {
   })
 }
 
-//  更新图书类型
+//  更新圖書類型
 export function updateBookType(data) {
   return request({
     url: '/bookType/updateBookType',

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>在线借阅平台</title>
+    <title>在線借閱平臺</title>
 
     <style>
         .my-big-title{
@@ -26,19 +26,19 @@
         .my-img-size{
             width: 150px; height: 200px;
         }
-        .my-book-isBorrowed{    /*动态使用，千万别删*/
+        .my-book-isBorrowed{    /*動態使用，千萬別刪*/
             color: red;
         }
-        .my-book-isNotBorrowed{ /*动态使用，千万别删*/
+        .my-book-isNotBorrowed{ /*動態使用，千萬別刪*/
             color: green;
         }
-        /*单行文本的溢出显示省略号*/
+        /*單行文本的溢出顯示省略號*/
         .pl{
             overflow:hidden;
             text-overflow:ellipsis;
-            white-space: nowrap;/*加宽度width属来兼容部分浏览*/
+            white-space: nowrap;/*加寬度width屬來兼容部分瀏覽*/
         }
-        /*多行文本溢出显示省略号*/
+        /*多行文本溢出顯示省略號*/
         .p2{
             overflow:hidden;
             text-overflow:ellipsis;
@@ -46,16 +46,16 @@
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 2;
             overflow: hidden;
-            /*-webkit-line-clamp用来限制在一个块元素显示的文本的行数。 为了实现该效果，它需要组合其他的WebKit属性。常见结合属性：
-            display: -webkit-box; 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。
-            -webkit-box-orient 必须结合的属性，设置或检索伸缩盒对象的子元素的排列方式 。*/
+            /*-webkit-line-clamp用來限制在一個塊元素顯示的文本的行數。 為了實現該效果，它需要組合其他的WebKit屬性。常見結合屬性：
+            display: -webkit-box; 必須結合的屬性 ，將對象作為彈性伸縮盒子模型顯示 。
+            -webkit-box-orient 必須結合的屬性，設置或檢索伸縮盒對象的子元素的排列方式 。*/
         }
     </style>
 
-    <!-- 导入layui css -->
+    <!-- 導入layui css -->
     <link rel="stylesheet" href="../layuimini/lib/layui-v2.6.3/css/layui.css" media="all">
 
-    <!-- 导入layui js -->
+    <!-- 導入layui js -->
     <script src="../layuimini/lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
 </head>
 <body>
@@ -63,27 +63,27 @@
     <div class="layui-row" style="background-color: #009688; color: white">
         <div class="layui-col-md5 my-big-title">
             <img src="http://wangpeng-imgsubmit.oss-cn-hangzhou.aliyuncs.com/img/202111112258460.png" style="height: 45px">
-            图书管理系统—在线借阅平台
+            圖書管理系統—在線借閱平臺
         </div>
         <div class="layui-col-md7">
             <ul class="layui-nav layui-bg-green my-nav">
                 <li class="layui-nav-item layui-this">
-                    <a href="./reader_book_list.html">全部图书</a>
+                    <a href="./reader_book_list.html">全部圖書</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="./reader_book_classification.html">图书分类</a>
+                    <a href="./reader_book_classification.html">圖書分類</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="./reader_borrow.html">我的借阅</a>
+                    <a href="./reader_borrow.html">我的借閱</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="javascript:;" id="my-about">关于</a>
+                    <a href="javascript:;" id="my-about">關於</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="javascript:;"><span id="my_name">未登录</span></a>
+                    <a href="javascript:;"><span id="my_name">未登錄</span></a>
                     <dl class="layui-nav-child">
-                        <dd><a href="./reader_password.html">修改密码</a></dd>
-                        <dd><a href="javascript:;" id="login-out">退出登录</a></dd>
+                        <dd><a href="./reader_password.html">修改密碼</a></dd>
+                        <dd><a href="javascript:;" id="login-out">退出登錄</a></dd>
                     </dl>
                 </li>
             </ul>
@@ -93,15 +93,15 @@
     <div class="my-main-body">
 
         <fieldset class="layui-elem-field layui-field-title">
-            <legend>全部书籍</legend>
+            <legend>全部書籍</legend>
         </fieldset>
 
         <form class="layui-form" action="" lay-filter="searchForm">
             <div class="layui-form-item">
-                <!--搜索书名或作者-->
+                <!--搜索書名或作者-->
                 <div class="layui-inline layui-col-md8">
                     <div>
-                        <input type="text" name="bookname" autocomplete="off" class="layui-input" placeholder="可以模糊搜索书名">
+                        <input type="text" name="bookname" autocomplete="off" class="layui-input" placeholder="可以模糊搜索書名">
                     </div>
                 </div>
                 <div class="layui-inline layui-col-md3">
@@ -112,7 +112,7 @@
         </form>
 
         <div class="layui-row" id="my_content">
-            <!--动态添加内容-->
+            <!--動態添加內容-->
         </div>
 
         <div id="my_page"></div>
@@ -135,9 +135,9 @@
 
     layui.use(['laypage', 'form'], function(){
         var laypage = layui.laypage,
-                layer = layui.layer,
-                form = layui.form,
-                $ = layui.$;
+            layer = layui.layer,
+            form = layui.form,
+            $ = layui.$;
 
         var objUserid;
         $.ajax({
@@ -157,7 +157,7 @@
                 url: '../user/reader/exitLogin',
                 type: 'get',
                 success: function () {
-                    layer.msg('退出登录成功', {time:1000}, function () {
+                    layer.msg('退出登錄成功', {time:1000}, function () {
                         window.location = '../index.html';
                     });
                 }
@@ -166,8 +166,8 @@
 
         $('#my-about').on("click", function () {
             layer.open({
-                title: '关于信息',
-                content: '系统名称：图书管理系统<br>作者：江苏第二师范学院 数学与信息技术学院 王鹏<br>联系QQ：894176237',
+                title: '關於信息',
+                content: '系統名稱：圖書管理系統<br>作者：江蘇第二師範學院 數學與信息技術學院 王鵬<br>聯繫QQ：894176237',
                 end: function () {
                     location.reload();
                 }
@@ -180,7 +180,7 @@
             "bookname": paramBookName === "null" ? "" : paramBookName
         });
 
-        // 先从服务器中获取数据的总数，初始化数据
+        // 先從服務器中獲取數據的總數，初始化數據
         $.ajax({
             url: '../bookInfo/reader/getSearchCount',
             data: {
@@ -189,17 +189,17 @@
             type: 'get',
             datatype: 'json',
             success: function (bookCount) {
-                //执行一个laypage实例
+                //執行一個laypage實例
                 laypage.render({
-                    elem: 'my_page', //注意，这里的 test1 是 ID，不用加 # 号
-                    count: bookCount, //数据总数，从服务端得到
+                    elem: 'my_page', //注意，這裡的 test1 是 ID，不用加 # 號
+                    count: bookCount, //數據總數，從服務端得到
                     limit: 6,
                     limits: [4, 6, 8, 10, 12, 14, 16, 18, 20],
                     layout: ['prev', 'page', 'next', 'limit', 'skip', 'count'],
                     jump: function(obj, first){
-                        //obj包含了当前分页的所有参数，比如：
-                        console.log(obj.curr); //得到当前页，以便向服务端请求对应页的数据。
-                        console.log(obj.limit); //得到每页显示的条数
+                        //obj包含了當前分頁的所有參數，比如：
+                        console.log(obj.curr); //得到當前頁，以便向服務端請求對應頁的數據。
+                        console.log(obj.limit); //得到每頁顯示的條數
                         $.ajax({
                             url: '../bookInfo/reader/searchBookInfosByPage',
                             data: {
@@ -226,19 +226,19 @@
                                     }
 
                                     $("#my_content").append("<div class=\"layui-inline layui-col-md6 my-book-item\">\n" +
-                                            "                <div class=\"layui-col-md4\">\n" +
-                                            "                    <img class=\"my-img-size\" src=\"" + mdata[i].bookimg + "\">\n" +
-                                            "                </div>\n" +
-                                            "                <div class=\"layui-col-md8\">\n" +
-                                            "                    <p class=\"p1\"><a href=\"#\"><span class=\"my-book-name\">" + mdata[i].bookname + "</span></a></p>\n" +
-                                            "                    <p class=\"p1\">作者：" + mdata[i].bookauthor + "</span></p>\n" +
-                                            "                    <p class=\"p1\">价格：" + mdata[i].bookprice + "</span></p>\n" +
-                                            "                    <p class=\"p1\">分类：" + mdata[i].booktypename + "</span></p>\n" +
-                                            "                    <p class=\"p2\" title=\"" + mdata[i].bookdesc + "\">描述：" + mdata[i].bookdesc + "</span></p>\n" +
-                                            "                    <p class=\"p1\">借出情况：<span class=\"" + colorClass + "\">" + word + "</span></p>\n" +
-                                            "                    <button class=\"layui-btn my-button my-borrow-button " + buttonClass + "\" bookid=\"" + mdata[i].bookid + "\">我要借书</button>\n" +
-                                            "                </div>\n" +
-                                            "            </div>\n");
+                                        "                <div class=\"layui-col-md4\">\n" +
+                                        "                    <img class=\"my-img-size\" src=\"" + mdata[i].bookimg + "\">\n" +
+                                        "                </div>\n" +
+                                        "                <div class=\"layui-col-md8\">\n" +
+                                        "                    <p class=\"p1\"><a href=\"#\"><span class=\"my-book-name\">" + mdata[i].bookname + "</span></a></p>\n" +
+                                        "                    <p class=\"p1\">作者：" + mdata[i].bookauthor + "</span></p>\n" +
+                                        "                    <p class=\"p1\">價格：" + mdata[i].bookprice + "</span></p>\n" +
+                                        "                    <p class=\"p1\">分類：" + mdata[i].booktypename + "</span></p>\n" +
+                                        "                    <p class=\"p2\" title=\"" + mdata[i].bookdesc + "\">描述：" + mdata[i].bookdesc + "</span></p>\n" +
+                                        "                    <p class=\"p1\">借出情況：<span class=\"" + colorClass + "\">" + word + "</span></p>\n" +
+                                        "                    <button class=\"layui-btn my-button my-borrow-button " + buttonClass + "\" bookid=\"" + mdata[i].bookid + "\">我要借書</button>\n" +
+                                        "                </div>\n" +
+                                        "            </div>\n");
                                 }
                             }
                         });
@@ -250,11 +250,11 @@
 
         $(document).on('click','.my-borrow-button',function(){
             var bookid = $(this).attr("bookid");
-            // 如果是disabled不响应监听
+            // 如果是disabled不響應監聽
             if($(this).hasClass('layui-btn-disabled')) return;
 
-            layer.confirm('您确定要借书吗', {
-                btn: ['确定','取消'] //按钮
+            layer.confirm('您確定要借書嗎', {
+                btn: ['確定','取消'] //按鈕
             }, function(){
                 $.ajax({
                     url: '../borrow/reader/borrowBook',
@@ -266,29 +266,29 @@
                     datatype: 'json',
                     success: function (res) {
                         if(res !== 0) {
-                            layer.msg('借书成功', {time: 1000}, function () {
-                                    location.reload();
-                                });
+                            layer.msg('借書成功', {time: 1000}, function () {
+                                location.reload();
+                            });
                         }
-                        else layer.msg('借书失败，可能书被其他同学借走了，请刷新页面重试!', {time: 3000});
+                        else layer.msg('借書失敗，可能書被其他同學借走了，請刷新頁面重試!', {time: 3000});
                     }
                 });
             }, function(){
-                // 取消回调
+                // 取消回調
             });
         });
 
-        // 搜索按钮监听
+        // 搜索按鈕監聽
         form.on('submit(data-search-btn)', function (data) {
             var result = data.field;
             var bookName = result.bookname;
             console.log(bookName);
             location.href="./reader_book_list.html?bookname=" + bookName;
-            return false;   //不跳转
+            return false;   //不跳轉
         });
 
     });
-    
+
 </script>
 
 </body>

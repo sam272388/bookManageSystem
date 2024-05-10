@@ -1,6 +1,6 @@
 module.exports = {
 
-  title: '图书管理系统',
+  title: '圖書管理系統',
 
   /**
    * @type {boolean} true | false

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>图书类型管理</title>
+    <title>圖書類型管理</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -12,38 +12,38 @@
     <script src="../layuimini/lib/jquery-3.4.1/jquery-3.4.1.min.js" charset="utf-8"></script>
 </head>
 <body>
-<!--编辑弹出框-->
+<!--編輯彈出框-->
 <div class="site-text" style="margin: 5%; display: none" id="edit_window">
     <div class="layui-form" style="width: 400px;" lay-filter="editForm">
-        <!--隐藏域，id-->
+        <!--隱藏域，id-->
         <input type="hidden" id="booktypeid" name="booktypeid" class="layui-input" value="null">
-        <!--类型名称-->
+        <!--類型名稱-->
         <div class="layui-form-item">
-            <label class="layui-form-label">类型名</label>
+            <label class="layui-form-label">類型名</label>
             <div class="layui-input-block">
-                <input type="text" id="booktypename" name="booktypename" value="" placeholder="请输入类型名" class="layui-input">
+                <input type="text" id="booktypename" name="booktypename" value="" placeholder="請輸入類型名" class="layui-input">
             </div>
         </div>
         <!--描述-->
         <div class="layui-form-item">
             <label class="layui-form-label">描述</label>
             <div class="layui-input-block">
-                <input type="text" id="booktypedesc" name="booktypedesc" value="" placeholder="请输入描述" class="layui-input">
+                <input type="text" id="booktypedesc" name="booktypedesc" value="" placeholder="請輸入描述" class="layui-input">
             </div>
         </div>
     </div>
 </div>
-<!--数据表格布局-->
+<!--數據表格佈局-->
 <div class="layuimini-container">
     <div class="layuimini-main">
-        <!--搜索栏-->
+        <!--搜索欄-->
         <fieldset class="table-search-fieldset">
             <legend>搜索信息</legend>
             <div style="margin: 10px 10px 10px 10px">
                 <form class="layui-form layui-form-pane" action="" lay-filter="searchForm">
                     <div class="layui-form-item">
                         <div class="layui-inline">
-                            <label class="layui-form-label">类型名</label>
+                            <label class="layui-form-label">類型名</label>
                             <div class="layui-input-inline">
                                 <input type="text" name="booktypename" autocomplete="off" class="layui-input">
                             </div>
@@ -52,34 +52,34 @@
                             <button type="submit" class="layui-btn layui-btn-primary"  lay-submit lay-filter="data-search-btn"><i class="layui-icon"></i> 搜　　索 </button>
                         </div>
                         <div class="layui-inline">
-                            <button type="submit" class="layui-btn layui-btn-primary"  lay-submit lay-filter="data-all-btn"><i class="layui-icon"></i> 显示全部 </button>
+                            <button type="submit" class="layui-btn layui-btn-primary"  lay-submit lay-filter="data-all-btn"><i class="layui-icon"></i> 顯示全部 </button>
                         </div>
                     </div>
                 </form>
-                <p>搜索框支持模糊查询。</p>
+                <p>搜索框支持模糊查詢。</p>
             </div>
         </fieldset>
-        <!--头部工具栏-->
+        <!--頭部工具欄-->
         <script type="text/html" id="toolbarDemo">
             <div class="layui-btn-container">
-                <button class="layui-btn layui-btn-normal data-add-btn" lay-event="add"> 添加图书类型 </button>
-                <button class="layui-btn layui-btn-danger data-delete-btn" lay-event="delete"> 删除选中类型（谨慎操作！） </button>
+                <button class="layui-btn layui-btn-normal data-add-btn" lay-event="add"> 添加圖書類型 </button>
+                <button class="layui-btn layui-btn-danger data-delete-btn" lay-event="delete"> 刪除選中類型（謹慎操作！） </button>
             </div>
         </script>
         <!--表格容器-->
         <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
-        <!--行工具栏-->
+        <!--行工具欄-->
         <script type="text/html" id="currentTableBar">
-            <a class="layui-btn layui-btn-normal layui-btn-sm data-count-edit" lay-event="edit">编辑</a>
-            <a class="layui-btn layui-btn-danger layui-btn-sm data-count-delete" lay-event="delete">删除</a>
+            <a class="layui-btn layui-btn-normal layui-btn-sm data-count-edit" lay-event="edit">編輯</a>
+            <a class="layui-btn layui-btn-danger layui-btn-sm data-count-delete" lay-event="delete">刪除</a>
         </script>
     </div>
 </div>
-<!--js代码-->
+<!--js代碼-->
 <script>
     layui.use(['form', 'table'], function () {
         var $ = layui.jquery, form = layui.form, table = layui.table;
-        //加载数据表格
+        //加載數據表格
         table.render({
             elem: '#currentTableId',
             url: '../bookType/queryBookTypesByPage',
@@ -87,16 +87,16 @@
             defaultToolbar: ['filter', 'exports', 'print'],
             cols: [[
                 {type: "checkbox"},
-                {field: 'booktypeid', title: '序号', sort: true},
-                {field: 'booktypename', title: '类型', sort: true},
+                {field: 'booktypeid', title: '序號', sort: true},
+                {field: 'booktypename', title: '類型', sort: true},
                 {field: 'booktypedesc', title: '描述'},
                 {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
             ]],
             limits: [5, 10, 15, 20, 25, 50, 100],
             limit: 10,
             page: {
-                prev: '上一页',
-                next: '下一页',
+                prev: '上一頁',
+                next: '下一頁',
             },
             done: function (res) {
                 console.log(res);
@@ -104,78 +104,78 @@
             skin: 'line'
         });
 
-        // 监听搜索操作
+        // 監聽搜索操作
         form.on('submit(data-search-btn)', function (data) {
             var result = JSON.stringify(data.field);
             console.log(result);
-            //执行搜索重载
+            //執行搜索重載
             table.reload('currentTableId', {
                 url: '../bookType/searchBookTypesByPage',
-                where: {json:result},   //把json传过去
-                page: {curr: 1}, //重新从第 1 页开始
+                where: {json:result},   //把json傳過去
+                page: {curr: 1}, //重新從第 1 頁開始
                 done: function (res) {
-                    layer.msg("搜索到"+res.count+"个结果", {time:1000});
+                    layer.msg("搜索到"+res.count+"個結果", {time:1000});
                     return res;
                 }
             });
-            return false;   //不跳转
+            return false;   //不跳轉
         });
 
-        // 监听显示全部操作
+        // 監聽顯示全部操作
         form.on('submit(data-all-btn)', function (data) {
             form.val("searchForm", {
                 'booktypename':null
             });
-            //执行搜索重载
+            //執行搜索重載
             table.reload('currentTableId', {
                 url: '../bookType/queryBookTypesByPage',
-                page: {curr: 1}, //重新从第 1 页开始
+                page: {curr: 1}, //重新從第 1 頁開始
                 done: null
             });
-            return false;   //不跳转
+            return false;   //不跳轉
         });
 
-        //toolbar监听事件
+        //toolbar監聽事件
         table.on('toolbar(currentTableFilter)', function (obj) {
-            if (obj.event === 'add') {  // 监听添加操作
+            if (obj.event === 'add') {  // 監聽添加操作
                 layer.open({
                     title:"新增",
                     type: 1,
                     maxmin:true,
                     shadeClose: true,
                     area:['500px','450px'],
-                    btn: ['确定', '取消'],
+                    btn: ['確定', '取消'],
                     content: $("#edit_window"),
-                    success: function () {  //弹出框成功回调
-                        //给表单赋值
+                    success: function () {  //彈出框成功回調
+                        //給表單賦值
                         form.val("editForm", {
                             "booktypeid": null,
-                            "booktypename": '小说',
-                            "booktypedesc": '雅俗共赏',
+                            "booktypename": '小說',
+                            "booktypedesc": '雅俗共賞',
                         });
                     },
-                    yes: function(index,layero){ //确认的回调
-                        layer.close(index); //关闭弹出框
+                    yes: function(index,layero){ //確認的回調
+                        layer.close(index); //關閉彈出框
                         var mdata = form.val('editForm');
-                        //向服务器请求
+                        //向服務器請求
                         $.ajax({
                             url: '../bookType/addBookType',
                             type: 'post',
                             contentType: "application/json;charset=utf-8",
-                            data: JSON.stringify(mdata),    //发json
+                            data: JSON.stringify(mdata),    //發json
                             success:function (res) {
                                 layer.msg("添加"+res+"行成功！",{time:1000});
-                                //获得最后一页的页码并重载
+                                //獲得最後一頁的頁碼並重載
                                 $.getJSON({
                                     url: '../bookType/getCount',
                                     success: function (res) {
-                                        //数据长度
+                                        //數據長度
                                         var len = res;
-                                        //每页大小
+                                        //每頁大小
                                         var size = $('.layui-laypage-limits').find('select').val();
-                                        //页码: 上取整（len/size）
+                                        //頁碼: 上取整（len/size）
                                         var pageNum = Math.ceil(len / size);
-                                        //重载页面
+                                        //重載頁面
                                         table.reload('currentTableId',{page : {curr : pageNum}});
                                     }
                                 });
@@ -183,20 +183,20 @@
                         });
                     }
                 });
-            } else if (obj.event === 'delete') {  // 监听删除操作
-                layer.confirm('警告：如果需要删除图书类型，需要确保图书信息中没有该类型的图书且删除后将无法恢复！您确认删除吗？', {icon: 0}, function(index){
+            } else if (obj.event === 'delete') {  // 監聽刪除操作
+                layer.confirm('警告：如果需要刪除圖書類型，需要確保圖書信息中沒有該類型的圖書且刪除後將無法恢復！您確認刪除嗎？', {icon: 0}, function(index){
                     var checkStatus = table.checkStatus('currentTableId')
                         , data = checkStatus.data;
-                    layer.close(index); //关闭提示框
-                    //向服务器请求
+                    layer.close(index); //關閉提示框
+                    //向服務器請求
                     $.ajax({
                         url: '../bookType/deleteBookTypes',
                         type: 'delete',
                         contentType: "application/json;charset=utf-8",
-                        data: JSON.stringify(data),   //发json过去
+                        data: JSON.stringify(data),   //發json過去
                         success:function (res) {
-                            layer.msg("删除" + res + "行成功！",{time:2000});
-                            //重载表格
+                            layer.msg("刪除" + res + "行成功！",{time:2000});
+                            //重載表格
                             table.reload('currentTableId',{page:{curr:1}});
                         }
                     });
@@ -205,35 +205,35 @@
         });
 
         table.on('tool(currentTableFilter)', function (obj) {
-            if (obj.event === 'edit') { //监听编辑按钮
+            if (obj.event === 'edit') { //監聽編輯按鈕
                 var index = layer.open({
-                    title: '编辑用户',
-                    type: 1,    //界面层
+                    title: '編輯用戶',
+                    type: 1,    //界面層
                     maxmin:true,
                     shadeClose: true,
                     area: ['500px', '450px'],
-                    btn: ['确定', '取消'],
+                    btn: ['確定', '取消'],
                     content: $("#edit_window"),
                     success: function () {
-                        var mdata = obj.data;   //获取该行的数据
-                        //给表单赋值
+                        var mdata = obj.data;   //獲取該行的數據
+                        //給表單賦值
                         form.val("editForm", {
                             "booktypeid": mdata.booktypeid,
                             "booktypename": mdata.booktypename,
                             "booktypedesc": mdata.booktypedesc,
                         });
                     },
-                    yes: function () {  //确认回调
-                        layer.close(index); //关闭弹出框
-                        var mdata = form.val('editForm');   //获取表单的数据
+                    yes: function () {  //確認回調
+                        layer.close(index); //關閉彈出框
+                        var mdata = form.val('editForm');   //獲取表單的數據
                         $.ajax({
                             url: '../bookType/updateBookType',
                             type: 'put',
                             contentType: "application/json;charset=utf-8",
-                            data: JSON.stringify(mdata),   //发json过去
+                            data: JSON.stringify(mdata),   //發json過去
                             success:function (res) {
                                 layer.msg("修改"+res+"行成功!",{time:1000});
-                                //重载表格
+                                //重載表格
                                 table.reload('currentTableId');
                             }
                         });
@@ -243,21 +243,21 @@
                     layer.full(index);
                 });
                 return false
-            } else if (obj.event === 'delete') {    //监听删除按钮
-                layer.confirm('警告：如果需要删除图书类型，需要确保图书信息中没有该类型的图书且删除后将无法恢复！您确认删除吗？', {icon: 0}, function (index) {
-                    var mdata = obj.data;    //获取该行的数据
-                    layer.close(index); //关闭窗口
-                    //向服务器请求
+            } else if (obj.event === 'delete') {    //監聽刪除按鈕
+                layer.confirm('警告：如果需要刪除圖書類型，需要確保圖書信息中沒有該類型的圖書且刪除後將無法恢復！您確認刪除嗎？', {icon: 0}, function (index) {
+                    var mdata = obj.data;    //獲取該行的數據
+                    layer.close(index); //關閉窗口
+                    //向服務器請求
                     $.ajax({
                         url: '../bookType/deleteBookType',
                         type: 'delete',
                         contentType: "application/json;charset=utf-8",
-                        data: JSON.stringify(mdata),   //发json过去
+                        data: JSON.stringify(mdata),   //發json過去
                         success:function (res) {
-                            if (res === 0) layer.msg("删除失败，可能存在相关的图书信息没有删除！", {time: 2000});
+                            if (res === 0) layer.msg("刪除失敗，可能存在相關的圖書信息沒有刪除！", {time: 2000});
                             else {
-                                layer.msg("删除" + res + "行成功！", {time: 1000});
-                                obj.del();  //删除对应行（tr）的DOM结构，并更新缓存
+                                layer.msg("刪除" + res + "行成功！", {time: 1000});
+                                obj.del();  //刪除對應行（tr）的DOM結構，並更新緩存
                             }
                         }
                     });

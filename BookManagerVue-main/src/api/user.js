@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 
-// 登录
+// 登錄
 export function login(data) {
   return request({
     url: '/user/login',
@@ -9,7 +9,7 @@ export function login(data) {
   })
 }
 
-// 获取用户信息
+// 獲取用戶信息
 export function getInfo(token) {
   return request({
     url: '/user/info',
@@ -27,7 +27,7 @@ export function logout(token) {
   })
 }
 
-// 注册
+// 註冊
 export function register(params) {
   return request({
     url: '/user/register',
@@ -36,7 +36,7 @@ export function register(params) {
   })
 }
 
-// 修改密码
+// 修改密碼
 export function alterPassword(params) {
   return request({
     url: '/user/alterPassword',
@@ -45,7 +45,7 @@ export function alterPassword(params) {
   })
 }
 
-// 获取用户数量
+// 獲取用戶數量
 export function getCount() {
   return request({
     url: '/user/getCount',
@@ -53,7 +53,7 @@ export function getCount() {
   })
 }
 
-// 查询所有用户信息
+// 查詢所有用戶信息
 export function queryUsers() {
   return request({
     url: '/user/queryUsers',
@@ -61,7 +61,7 @@ export function queryUsers() {
   })
 }
 
-// 分页查询用户信息
+// 分頁查詢用戶信息
 export function queryUsersByPage(params) {
   return request({
     url: '/user/queryUsersByPage',
@@ -70,7 +70,7 @@ export function queryUsersByPage(params) {
   })
 }
 
-// 添加用户信息
+// 添加用戶信息
 export function addUser(data) {
   return request({
     url: '/user/addUser',
@@ -79,7 +79,7 @@ export function addUser(data) {
   })
 }
 
-// 删除用户信息
+// 刪除用戶信息
 export function deleteUser(data) {
   return request({
     url: '/user/deleteUser',
@@ -88,7 +88,7 @@ export function deleteUser(data) {
   })
 }
 
-//  删除一些用户信息
+//  刪除一些用戶信息
 export function deleteUsers(data) {
   return request({
     url: '/user/deleteUsers',
@@ -97,7 +97,7 @@ export function deleteUsers(data) {
   })
 }
 
-//  更新用户信息
+//  更新用戶信息
 export function updateUser(data) {
   return request({
     url: '/user/updateUser',

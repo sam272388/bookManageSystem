@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 
-// 获取借阅数量
+// 獲取借閱數量
 export function getCount() {
   return request({
     url: '/borrow/getCount',
@@ -8,7 +8,7 @@ export function getCount() {
   })
 }
 
-// 查询所有借阅信息
+// 查詢所有借閱信息
 export function queryBorrows() {
   return request({
     url: '/borrow/queryBorrows',
@@ -16,7 +16,7 @@ export function queryBorrows() {
   })
 }
 
-// 分页查询借阅信息
+// 分頁查詢借閱信息
 export function queryBorrowsByPage(params) {
   return request({
     url: '/borrow/queryBorrowsByPage',
@@ -25,7 +25,7 @@ export function queryBorrowsByPage(params) {
   })
 }
 
-// 添加借阅信息
+// 添加借閱信息
 export function addBorrow(data) {
   return request({
     url: '/borrow/addBorrow',
@@ -34,7 +34,7 @@ export function addBorrow(data) {
   })
 }
 
-// 删除借阅信息
+// 刪除借閱信息
 export function deleteBorrow(data) {
   return request({
     url: '/borrow/deleteBorrow',
@@ -43,7 +43,7 @@ export function deleteBorrow(data) {
   })
 }
 
-//  删除一些借阅信息
+//  刪除一些借閱信息
 export function deleteBorrows(data) {
   return request({
     url: '/borrow/deleteBorrows',
@@ -52,7 +52,7 @@ export function deleteBorrows(data) {
   })
 }
 
-//  更新借阅信息
+//  更新借閱信息
 export function updateBorrow(data) {
   return request({
     url: '/borrow/updateBorrow',
@@ -61,7 +61,7 @@ export function updateBorrow(data) {
   })
 }
 
-// 借书
+// 借書
 export function borrowBook(userid, bookid) {
   return request({
     url: '/borrow/borrowBook',
@@ -73,7 +73,7 @@ export function borrowBook(userid, bookid) {
   })
 }
 
-// 还书
+// 還書
 export function returnBook(borrowid, bookid) {
   return request({
     url: '/borrow/returnBook',

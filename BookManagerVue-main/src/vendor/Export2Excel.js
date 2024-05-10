@@ -193,7 +193,6 @@ export function export_json_to_excel({
         };
       }
     }))
-    /*以第一行为初始值*/
     let result = colWidth[0];
     for (let i = 1; i < colWidth.length; i++) {
       for (let j = 0; j < colWidth[i].length; j++) {
